@@ -1,0 +1,20 @@
+---
+import { CATEGORIES } from '../lib/categories';
+---
+<footer class="bg-white border-t border-brand-border mt-16">
+  <div class="max-w-5xl mx-auto px-4 py-10 text-sm text-brand-muted">
+    <div class="flex flex-wrap gap-4 mb-6">
+      {CATEGORIES.map((c) => (
+        <a href={`/category/${c.slug}`} class="hover:text-brand-blue">{c.name}</a>
+      ))}
+      <a href="/about" class="hover:text-brand-blue">소개</a>
+      <a href="/privacy" class="hover:text-brand-blue">개인정보처리방침</a>
+      <a href="/contact" class="hover:text-brand-blue">문의하기</a>
+    </div>
+    <p class="leading-relaxed">
+      든든지원금은 기초연금, 노인장기요양보험, 노인일자리, 국민연금 수령, 경로우대 등 어르신 대상 정부지원 제도를
+      보건복지부·국민연금공단·정부24·복지로 등 공식 자료를 기반으로 정리해 전달하는 독립 정보 사이트입니다.
+    </p>
+    <p class="mt-4">© 2026 든든지원금. All rights reserved.</p>
+  </div>
+</footer>

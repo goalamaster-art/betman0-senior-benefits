@@ -1,0 +1,54 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+import AdSlot from '../components/AdSlot.astro';
+import { CATEGORIES } from '../lib/categories';
+import { getCollection } from 'astro:content';
+
+const allArticles = (await getCollection('articles')).sort(
+  (a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf()
+);
+---
+<BaseLayout
+  title="든든지원금 — 기초연금·노인장기요양보험·국민연금 수령 정보"
+  description="기초연금, 노인장기요양보험, 노인일자리, 국민연금 수령 등 어르신 대상 정부지원 제도를 보건복지부·국민연금공단 공식 자료 기반으로 알기 쉽게 정리해 전달합니다."
+>
+  <section class="bg-brand-navy text-white">
+    <div class="max-w-5xl mx-auto px-4 py-14">
+      <span class="inline-block text-xs font-bold bg-white/10 rounded-full px-3 py-1 mb-4">공식 자료 기반 · 발행 전 사실 확인</span>
+      <h1 class="text-2xl md:text-3xl font-bold leading-snug mb-3">기초연금부터 국민연금 수령까지,<br />놓치기 쉬운 노후 지원금을 정리합니다</h1>
+      <p class="text-white/80 max-w-xl leading-relaxed">
+        보건복지부·국민연금공단 등 공식 자료를 기반으로, 신청 자격·지급액·신청 방법을 실무 기준으로 안내합니다. 부모님 몫을 대신 찾아보실 때도 도움이 됩니다.
+      </p>
+    </div>
+  </section>
+
+  <div class="max-w-5xl mx-auto px-4">
+    <AdSlot label="도입부" />
+  </div>
+
+  <section id="latest" class="max-w-5xl mx-auto px-4 py-6">
+    <h2 class="text-lg font-bold text-brand-navy mb-4">최신 글</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+      {allArticles.map((a) => (
+        <ArticleCard slug={a.id} title={a.data.title} summary={a.data.summary} category={a.data.category} publishedAt={a.data.publishedAt} />
+      ))}
+    </div>
+  </section>
+
+  <div class="max-w-5xl mx-auto px-4">
+    <AdSlot label="본문 중간" />
+  </div>
+
+  <section class="max-w-5xl mx-auto px-4 py-6">
+    <h2 class="text-lg font-bold text-brand-navy mb-4">카테고리</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      {CATEGORIES.map((c) => (
+        <a href={`/category/${c.slug}`} class="block bg-white border border-brand-border rounded-xl p-5 hover:border-brand-blue transition-colors">
+          <div class="font-bold text-brand-navy mb-1">{c.name}</div>
+          <div class="text-sm text-brand-muted">{c.description}</div>
+        </a>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,27 @@
+# 든든지원금 (Deundeun Jiwongeum — Korean Senior Welfare Benefits Guide)
+
+> 기초연금, 노인장기요양보험, 노인일자리, 국민연금 수령 등 대한민국 정부의 어르신 대상 복지 제도를 보건복지부·국민연금공단 공식 자료 기반으로 정리해서 전달하는 독립 정보 사이트입니다.
+
+## 사이트 정보
+
+- 사이트명: 든든지원금
+- URL: https://betman0.com
+- 언어: 한국어
+- 주제: 기초연금, 노인장기요양보험, 노인일자리, 국민연금 수령, 경로우대 등 어르신 대상 정부지원 제도
+- 콘텐츠 기준: 보건복지부, 국민연금공단, 정부24, 복지로 등 공식 기관 자료
+
+## 카테고리
+
+- 기초연금 (/category/basic-pension)
+- 노인장기요양보험 (/category/long-term-care)
+- 노인일자리·사회활동 (/category/senior-jobs)
+- 국민연금 수령 (/category/national-pension)
+- 노후생활지원 (/category/elder-life-support)
+
+## AI 크롤링 허용 정책
+
+이 사이트는 AI 학습 및 검색 인덱싱을 위한 크롤링을 허용합니다. GPTBot, ClaudeBot, PerplexityBot, Google-Extended, Bingbot 모두 허용됩니다.
+
+## 면책 조항
+
+본 사이트의 모든 콘텐츠는 정보 제공 목적이며, 정확한 지원 조건과 최신 정보는 반드시 보건복지부·국민연금공단·정부24·복지로 등 공식 기관을 통해 확인하시기 바랍니다.

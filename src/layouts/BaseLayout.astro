@@ -1,0 +1,63 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  jsonLd?: object[];
+  image?: string;
+}
+const { title, description, jsonLd = [], image } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImageURL = image ? new URL(image, Astro.site) : undefined;
+
+const siteJsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': `${Astro.site}#website`,
+    url: Astro.site,
+    name: '든든지원금',
+    description: '기초연금·노인장기요양보험·노인일자리·국민연금 수령 등 어르신 대상 정부지원 제도를 공식 자료 기반으로 정리해 전달하는 정보 사이트',
+    inLanguage: 'ko-KR',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': `${Astro.site}#organization`,
+    name: '든든지원금',
+    url: Astro.site,
+    description: '보건복지부·국민연금공단·정부24·복지로 등 공식 자료를 기반으로 어르신 대상 정부지원 제도를 정리해 전달하는 독립 정보 사이트입니다.',
+  },
+  ...jsonLd,
+];
+---
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonicalURL} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    {ogImageURL && <meta property="og:image" content={ogImageURL} />}
+    <meta name="twitter:card" content={ogImageURL ? 'summary_large_image' : 'summary'} />
+    {siteJsonLd.map((data) => (
+      <script type="application/ld+json" set:html={JSON.stringify(data)} is:inline />
+    ))}
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <Header />
+    <main class="flex-1">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

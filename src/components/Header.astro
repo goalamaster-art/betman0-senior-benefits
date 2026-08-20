@@ -1,0 +1,16 @@
+---
+import { CATEGORIES } from '../lib/categories';
+---
+<header class="bg-white border-b border-brand-border sticky top-0 z-10">
+  <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
+    <a href="/" class="flex items-center gap-2 font-bold text-brand-navy text-lg">
+      <span>🌾</span>
+      <span>든든지원금</span>
+    </a>
+    <nav class="hidden sm:flex gap-4 text-sm text-brand-muted">
+      {CATEGORIES.map((c) => (
+        <a href={`/category/${c.slug}`} class="hover:text-brand-blue">{c.name}</a>
+      ))}
+    </nav>
+  </div>
+</header>

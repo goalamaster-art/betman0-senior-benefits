@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-navy: #5c2a3d;
+  --color-brand-blue: #b8763b;
+  --color-brand-blue-light: #f6ece0;
+  --color-brand-surface: #faf7f4;
+  --color-brand-border: #e8ddd2;
+  --color-brand-text: #2b211e;
+  --color-brand-muted: #6b5d55;
+  --color-brand-warn: #a3432f;
+  --color-brand-warn-bg: #fbeee9;
+  --font-sans: "Pretendard", "Noto Sans KR", -apple-system, system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-brand-surface);
+  color: var(--color-brand-text);
+  font-family: var(--font-sans);
+}
+
+.prose-article h2 {
+  @apply text-xl font-bold mt-10 mb-4 pl-3 border-l-4 border-brand-blue text-brand-navy;
+}
+
+.prose-article h3 {
+  @apply text-lg font-bold mt-7 mb-3 text-brand-navy;
+}
+
+.prose-article p {
+  @apply text-[15.5px] leading-[1.85] mb-4 text-brand-text;
+}
+
+.prose-article ul,
+.prose-article ol {
+  @apply mb-4 pl-5 space-y-1.5 text-[15.5px] leading-[1.8];
+}
+
+.prose-article ul {
+  @apply list-disc;
+}
+
+.prose-article ol {
+  @apply list-decimal;
+}
+
+.prose-article table {
+  @apply w-full text-sm border-collapse my-5 rounded-lg border border-brand-border;
+  display: block;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.prose-article th {
+  @apply bg-brand-blue-light text-brand-navy font-bold text-left px-3 py-2.5 border-b border-brand-border;
+}
+
+.prose-article td {
+  @apply px-3 py-2.5 border-b border-brand-border text-brand-text;
+}
+
+.prose-article tr:last-child td {
+  @apply border-b-0;
+}
+
+.prose-article img {
+  @apply w-full h-auto rounded-xl border border-brand-border my-5;
+}
+
+.prose-article blockquote {
+  @apply border-l-4 border-brand-warn bg-brand-warn-bg text-sm text-brand-text px-4 py-3 my-5 rounded-r-md;
+}
+
+.prose-article strong {
+  @apply text-brand-navy font-bold;
+}
+
+.prose-article a {
+  @apply text-brand-blue underline underline-offset-2;
+}
+
+.ad-slot {
+  @apply flex items-center justify-center text-xs text-brand-muted border border-dashed border-brand-border bg-white rounded-lg py-6 my-6;
+}
