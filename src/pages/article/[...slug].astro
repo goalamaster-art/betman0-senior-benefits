@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import AdSlot from '../../components/AdSlot.astro';
-import { getCategory, formatDate } from '../../lib/categories';
+import { getCategory, formatDate, getThumbnailPath } from '../../lib/categories';
 import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -65,7 +65,7 @@ const jsonLd = [
     : []),
 ];
 ---
-<BaseLayout title={`${entry.data.title} | 든든지원금`} description={entry.data.metaDescription} jsonLd={jsonLd} image={`/images/articles/${entry.id}/01-thumbnail.png`}>
+<BaseLayout title={`${entry.data.title} | 든든지원금`} description={entry.data.metaDescription} jsonLd={jsonLd} image={getThumbnailPath(entry.id)}>
   <div class="max-w-5xl mx-auto px-4 grid grid-cols-1 md:grid-cols-[1fr_240px] gap-8 py-8">
     <article>
       <nav class="text-xs text-brand-muted mb-3">

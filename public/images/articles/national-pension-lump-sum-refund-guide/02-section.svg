@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 768 512">
+  <rect width="768" height="512" fill="#f6ece0"/>
+  <circle cx="384" cy="256" r="170" fill="#faf7f4"/>
+  <circle cx="384" cy="200" r="20" fill="#5c2a3d"/>
+  <path d="M384 220 L280 320" stroke="#b8763b" stroke-width="7" stroke-linecap="round"/>
+  <path d="M384 220 L488 320" stroke="#5c2a3d" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="270" cy="335" r="26" fill="#b8763b"/>
+  <circle cx="500" cy="335" r="26" fill="#5c2a3d"/>
+  <text x="270" y="343" font-family="sans-serif" font-size="20" fill="#ffffff" text-anchor="middle">₩</text>
+  <text x="500" y="343" font-family="sans-serif" font-size="20" fill="#ffffff" text-anchor="middle">%</text>
+</svg>

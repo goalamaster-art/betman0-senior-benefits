@@ -1,3 +1,15 @@
+import { existsSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+
+const publicImagesDir = fileURLToPath(new URL('../../public/images/articles/', import.meta.url));
+
+export function getThumbnailPath(slug: string) {
+  if (existsSync(`${publicImagesDir}${slug}/01-thumbnail.svg`)) {
+    return `/images/articles/${slug}/01-thumbnail.svg`;
+  }
+  return `/images/articles/${slug}/01-thumbnail.png`;
+}
+
 export const CATEGORIES = [
   {
     slug: 'basic-pension',
