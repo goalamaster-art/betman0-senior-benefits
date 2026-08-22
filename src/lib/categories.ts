@@ -1,10 +1,10 @@
 import { existsSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
+import path from 'node:path';
 
-const publicImagesDir = fileURLToPath(new URL('../../public/images/articles/', import.meta.url));
+const publicImagesDir = path.join(process.cwd(), 'public', 'images', 'articles');
 
 export function getThumbnailPath(slug: string) {
-  if (existsSync(`${publicImagesDir}${slug}/01-thumbnail.svg`)) {
+  if (existsSync(path.join(publicImagesDir, slug, '01-thumbnail.svg'))) {
     return `/images/articles/${slug}/01-thumbnail.svg`;
   }
   return `/images/articles/${slug}/01-thumbnail.png`;
