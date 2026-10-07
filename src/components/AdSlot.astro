@@ -1,7 +1,8 @@
 ---
+// 승인 전에는 아무것도 렌더링하지 않는다.
+// "광고 (도입부)" 같은 빈 박스·안내 문구가 남으면 심사자에게 미완성 사이트로 보인다(2026-10-07).
+// 광고는 BaseLayout 의 자동광고 스크립트가 담당한다.
 interface Props {
   label: string;
 }
-const { label } = Astro.props;
 ---
-<div class="ad-slot">광고 ({label})</div>

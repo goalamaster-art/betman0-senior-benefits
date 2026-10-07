@@ -37,7 +37,7 @@ const jsonLd = [
     datePublished: entry.data.publishedAt.toISOString(),
     dateModified: entry.data.updatedAt.toISOString(),
     inLanguage: 'ko-KR',
-    author: { '@type': 'Organization', name: '든든지원금' },
+    author: { '@type': 'Person', name: '권윤안', jobTitle: '도트링크 주식회사 대표', url: new URL('/about/', Astro.site).toString() },
     publisher: { '@type': 'Organization', name: '든든지원금' },
     keywords: entry.data.tags.join(', '),
   },
@@ -130,6 +130,14 @@ const jsonLd = [
             <li><a href={s.url} target="_blank" rel="noopener" class="text-brand-blue hover:underline">{s.name}</a></li>
           ))}
         </ul>
+      </section>
+
+      <section class="mt-6 bg-white border border-brand-border rounded-xl p-5">
+        <div class="font-bold text-brand-navy text-sm mb-1">글 권윤안 · 든든지원금 운영자</div>
+        <p class="text-sm text-brand-muted leading-relaxed">
+          도트링크 주식회사 대표입니다. 복지 분야 전문 자격자는 아니어서, 금액·기준·기한은 보건복지부 고시와 법령 원문을 직접 대조해 적고
+          위 공식 출처를 함께 답니다. 원문으로 확인하지 못한 내용은 "미확정"으로 표시합니다. <a href="/about/" class="text-brand-blue hover:underline">운영자 소개</a>
+        </p>
       </section>
 
       <div class="flex flex-wrap gap-2 mt-6">
