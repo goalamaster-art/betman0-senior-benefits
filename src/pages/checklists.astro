@@ -1,0 +1,133 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+interface Checklist {
+  id: string;
+  title: string;
+  where: string;
+  items: string[];
+  notes: string[];
+  article: { href: string; label: string };
+}
+
+const lists: Checklist[] = [
+  {
+    id: 'basic-pension',
+    title: '기초연금 신청',
+    where: '복지로(bokjiro.go.kr) 온라인, 주소지 읍·면·동 행정복지센터, 국민연금공단 지사 · 문의 1355',
+    items: [
+      '신분증 (주민등록증, 운전면허증, 여권 중 하나)',
+      '사회복지서비스 및 급여 제공(변경) 신청서, 소득·재산 신고서 (창구에 비치)',
+      '금융정보 등 제공 동의서 — 본인과 배우자 모두 서명',
+      '본인 명의 통장 사본',
+    ],
+    notes: [
+      '만 65세 생일이 속한 달의 1개월 전부터 신청할 수 있습니다.',
+      '신청한 달부터 지급되며 늦게 신청한 기간은 소급되지 않습니다.',
+      '결정 통지는 원칙적으로 30일 이내, 조사가 길어지면 60일 이내입니다.',
+    ],
+    article: { href: '/article/basic-pension-2026-guide', label: '2026 기초연금 수급자격·지급액 총정리' },
+  },
+  {
+    id: 'long-term-care',
+    title: '노인장기요양 등급 신청',
+    where: '국민건강보험공단 지사(장기요양운영센터) 방문 또는 노인장기요양보험 홈페이지 · 문의 1577-1000',
+    items: [
+      '장기요양인정신청서',
+      '의사 또는 한의사 소견서 — 공단 의뢰서를 받아 판정 전까지 제출 (2026년 본인부담 일반 12,404원, 감경 6,202원)',
+      '만 65세 미만이면 노인성 질병 진단서',
+      '가족 등이 대신 신청하면 대리인 신분증',
+    ],
+    notes: [
+      '가족·친족·사회복지전담공무원·치매안심센터장이 대리 신청할 수 있습니다.',
+      '공단 직원 방문조사 날에는 평소 생활 모습을 그대로 보여 주세요. 평소 어려운 점을 미리 메모해 두면 빠뜨리지 않습니다.',
+      '판정은 신청일부터 30일 이내, 정밀조사가 필요하면 30일 범위에서 연장됩니다.',
+    ],
+    article: { href: '/article/long-term-care-grade-guide', label: '노인장기요양보험 등급 판정 기준과 신청 방법' },
+  },
+  {
+    id: 'national-pension',
+    title: '국민연금 노령연금 청구',
+    where: '국민연금공단 지사 방문, 홈페이지(nps.or.kr) 전자민원, 내 곁에 국민연금 앱 · 문의 1355',
+    items: [
+      '신분증',
+      '본인 명의 통장 사본',
+      '조기수령을 신청한다면 소득이 없다는 사실을 확인할 자료',
+    ],
+    notes: [
+      '신청 전에 1355에서 조기·정상·연기 수령별 예상액을 비교해 보세요.',
+      '조기수령 감액률은 한번 정하면 평생 고정되고, 연기는 언제든 지급 재개로 바꿀 수 있습니다.',
+      '노령연금이 월 524,550원을 넘으면 기초연금 연계감액 대상이 됩니다.',
+    ],
+    article: { href: '/article/national-pension-early-late-guide', label: '국민연금 조기수령·연기수령 비교' },
+  },
+  {
+    id: 'senior-job',
+    title: '노인일자리 참여 신청',
+    where: '주소지 행정복지센터, 시니어클럽, 노인복지관, 대한노인회 등 수행기관 또는 노인일자리 여기(seniorro.or.kr) · 문의 1544-3388',
+    items: [
+      '신분증',
+      '참여 신청서 (수행기관 비치, 온라인 신청 시 화면 입력)',
+      '본인 명의 통장 사본 (활동비 입금용)',
+    ],
+    notes: [
+      '2026년 참여자는 2025년 11월 28일~12월 26일에 집중 모집했습니다. 2027년 일정과 모집 뒤 결원 충원은 수행기관 공고로 확인하세요.',
+      '1544-3388로 걸면 전화를 건 위치에서 가까운 수행기관으로 연결됩니다.',
+      '유형마다 기초연금 수급 여부 등 참여 조건이 다르니 신청 전에 확인하세요.',
+    ],
+    article: { href: '/article/senior-job-program-types-guide', label: '노인일자리 사업 종류와 신청방법' },
+  },
+];
+---
+<BaseLayout
+  title="어르신 지원 신청 서류 체크리스트 (인쇄용) | 든든지원금"
+  description="기초연금, 노인장기요양 등급, 국민연금 노령연금, 노인일자리 신청 때 챙길 서류와 신청처를 한 장씩 인쇄할 수 있게 정리했습니다."
+>
+  <div class="max-w-3xl mx-auto px-4 py-12">
+    <p class="text-sm text-brand-muted mb-2 print:hidden">도구 · 최종수정 2026-11-02</p>
+    <h1 class="text-2xl font-bold text-brand-navy mb-4">어르신 지원 신청 서류 체크리스트</h1>
+    <div class="prose-article print:hidden">
+      <p>
+        부모님 신청을 대신 챙기다 보면 서류 하나가 빠져 창구에 두 번 가게 되는 일이 많습니다. 자주 신청하는 제도 네 가지의 준비물과 신청처를
+        한 장씩 정리했습니다. 필요한 항목만 골라 인쇄해 가시고, 챙긴 것은 네모 칸에 체크하세요. 서류 이름과 금액은 각 기관의 2026년 안내를 기준으로 했고,
+        자세한 근거는 각 체크리스트 아래 연결한 글에 원문 링크와 함께 적어 두었습니다.
+      </p>
+      <p>
+        지자체마다 추가 서류를 요구하는 경우가 있으니, 가시기 전에 해당 기관에 전화로 한 번 더 확인하시면 헛걸음을 줄일 수 있습니다.
+      </p>
+    </div>
+
+    <nav class="my-6 flex flex-wrap gap-2 print:hidden">
+      {lists.map((l) => (
+        <a href={`#${l.id}`} class="px-3 py-1.5 rounded-full border border-brand-border bg-white text-sm hover:text-brand-blue">{l.title}</a>
+      ))}
+      <button type="button" onclick="window.print()" class="px-3 py-1.5 rounded-full bg-brand-navy text-white text-sm">이 페이지 인쇄</button>
+    </nav>
+
+    {lists.map((l) => (
+      <section id={l.id} class="bg-white border border-brand-border rounded-xl p-5 mb-6 break-inside-avoid">
+        <h2 class="text-xl font-bold text-brand-navy mb-1">{l.title}</h2>
+        <p class="text-sm text-brand-muted mb-4">신청처: {l.where}</p>
+        <ul class="grid gap-2 mb-4">
+          {l.items.map((item) => (
+            <li class="flex gap-3 items-start"><span class="mt-1 inline-block w-4 h-4 border-2 border-brand-navy rounded-sm shrink-0" aria-hidden="true"></span><span>{item}</span></li>
+          ))}
+        </ul>
+        <h3 class="font-bold text-brand-navy mb-2">알아 둘 점</h3>
+        <ul class="list-disc pl-5 grid gap-1 text-[15px] mb-3">
+          {l.notes.map((n) => <li>{n}</li>)}
+        </ul>
+        <p class="text-sm print:hidden">자세히: <a href={l.article.href} class="text-brand-blue underline">{l.article.label}</a></p>
+      </section>
+    ))}
+
+    <div class="prose-article print:hidden">
+      <h2>체크리스트를 쓰기 전에</h2>
+      <p>
+        기초연금 대상인지 먼저 어림해 보고 싶다면 <a href="/tools/basic-pension-calculator">기초연금 계산기</a>로 소득인정액을 계산해 보세요.
+        여러 제도를 한 번에 훑고 싶다면 <a href="/article/senior-benefits-checklist-guide">노후지원금 자가진단 체크리스트</a>가 받을 수 있는 제도를 영역별로 정리해 둔 글입니다.
+        이 페이지의 내용이 기관 안내와 다르면 <a href="/contact">문의하기</a>로 알려 주세요. 확인 후 바로 고치고 최종수정일을 바꿉니다.
+      </p>
+    </div>
+  </div>
+</BaseLayout>
