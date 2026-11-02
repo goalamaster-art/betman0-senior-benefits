@@ -51,6 +51,7 @@ const siteJsonLd = [
     <meta name="twitter:card" content={ogImageURL ? 'summary_large_image' : 'summary'} />
     <link rel="alternate" type="application/rss+xml" title="든든지원금 RSS" href={new URL('/rss.xml', Astro.site)} />
     <meta name="naver-site-verification" content="a7daf3212ad5789d3a88850fb8acc07171e1a6bb" />
+    <meta name="google-site-verification" content="SOpj61S1OcM1wq4NqlmP6xz-1pi8McOztivPXwinFmw" />
     {siteJsonLd.map((data) => (
       <script type="application/ld+json" set:html={JSON.stringify(data)} is:inline />
     ))}
