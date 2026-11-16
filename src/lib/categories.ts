@@ -10,6 +10,13 @@ export function getThumbnailPath(slug: string) {
   return `/images/articles/${slug}/01-thumbnail.png`;
 }
 
+/** 공유 미리보기(og:image)용 — SNS 는 SVG 를 못 그려서 PNG 만 준다 */
+export function getOgImagePath(slug: string) {
+  return existsSync(path.join(publicImagesDir, slug, '01-thumbnail.png'))
+    ? `/images/articles/${slug}/01-thumbnail.png`
+    : '/images/og-default.png';
+}
+
 export const CATEGORIES = [
   {
     slug: 'basic-pension',
